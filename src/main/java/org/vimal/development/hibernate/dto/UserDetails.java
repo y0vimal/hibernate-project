@@ -10,6 +10,7 @@ import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -35,7 +36,7 @@ public class UserDetails {
 //	@Embedded
 //	private Address address;
 	
-	@ElementCollection
+	@ElementCollection (fetch = FetchType.EAGER)
 	@JoinTable(name = "User_Address",
 			   joinColumns = @JoinColumn(name = "USER_ID")
 	)						

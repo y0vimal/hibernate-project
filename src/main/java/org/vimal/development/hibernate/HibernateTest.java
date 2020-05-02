@@ -58,6 +58,18 @@ public class HibernateTest {
 //		
 //		System.out.println("user name retrieved : " + userDetails.getUserName());
 		
+		/**
+		 * Lazy and eager fetching of data from data base
+		 * */
+		
+		userDetails = null;
+		
+		session = sessionFactory.openSession();
+		
+		userDetails = (UserDetails) session.get(UserDetails.class, 1);
+//		System.out.println("collection list size : " + userDetails.getAddressList().size()); // Lazy initialization
+		session.close();
+		System.out.println("collection list size : " + userDetails.getAddressList().size()); // Eager initialization
 		
 		
 		
